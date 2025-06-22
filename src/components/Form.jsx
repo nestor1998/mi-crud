@@ -1,34 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; // Importa React y hooks useState y useEffect
 
 function Form({ addOrUpdateItem, itemToEdit }) {
-    const [inputValue, setInputValue] = useState('');
+    const [inputValue, setInputValue] = useState(''); // Estado para el valor del input, inicia vacío
 
-    useEffect(() => {
+    useEffect(() => { 
         if (itemToEdit) {
-            setInputValue(itemToEdit.value);
+            setInputValue(itemToEdit.value); // Si hay item para editar, precarga el input con su valor
         } else {
-            setInputValue('');
+            setInputValue(''); // Si no, limpia el input
         }
-    }, [itemToEdit]);
+    }, [itemToEdit]); // Se ejecuta cada vez que cambia itemToEdit
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        if (inputValue.trim()) {
-            addOrUpdateItem(inputValue);
-            setInputValue('');
+        e.preventDefault(); // Previene recarga de página al enviar el formulario
+        if (inputValue.trim()) { // Valida que el input no esté vacío (sin espacios)
+            addOrUpdateItem(inputValue); // Llama a la función para agregar o actualizar con el valor del input
+            setInputValue(''); // Limpia el input después de enviar
         }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}> {/* Formulario que llama a handleSubmit al enviarse */}
             <input
                 type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
+                value={inputValue} // El valor del input es controlado por el estado
+                onChange={(e) => setInputValue(e.target.value)} // Actualiza estado cuando el usuario escribe
             />
-            <button type="submit">{itemToEdit ? 'Actualizar' : 'Agregar'}</button>
+            <button type="submit">{itemToEdit ? 'Actualizar' : 'Agregar'}</button> {/* Texto cambia según si es edición o nuevo */}
         </form>
     );
 }
 
-export default Form;
+export default Form; // Exporta el componente para usarlo en otros archivos
