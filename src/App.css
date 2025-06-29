@@ -1,42 +1,216 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+.escala-general {
+  transform: scale(0.6);         /* Prueba con 0.9 o menos */
+  transform-origin: top center;  /* Para que se centre correctamente */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+body {
+  background: linear-gradient(rgb(5, 55, 204),rgb(192, 215, 244)); /* fondo claro */
+  color: #222222; /* texto bien visible */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.titulo-centro {
+  width: 550px;
+  text-align: center;
+  margin: auto;
+  color: #2c3e50;
+  padding: 20px;
+  border-radius: 10px;
+  background: white;
+  font-size: 40px;
+  margin-bottom: 20px;
+  box-shadow: 0px 1px 10px 0px black;
+  margin-top: 40px;
 }
 
-.card {
-  padding: 2em;
+
+.App {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 10px 0px black;
+
 }
 
-.read-the-docs {
-  color: #888;
+
+
+form {
+  padding: 20px;  
+  
+
+}
+
+
+
+
+label {
+  text-align: left;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+  width: 100%;
+  font-size: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: white;
+  color: black;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  background-color: #1976d2;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  /* Cambiado de flex-start a center */
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 6px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  
+}
+
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.item-actions button {
+  margin-left: 10px;
+  font-size: 22px; /* antes 1rem (16px), aquí más grande */
+  padding: 8px 14px; /* hazlos más grandes por dentro */
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600; /* opcional para resaltar el texto */
+}
+
+
+.edit-btn {
+  background-color: #ffb300;
+  color: white;
+
+}
+
+.edit-btn:hover {
+  background-color: #f7ce03;
+}
+
+.delete-btn {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #9a2424;
+}
+
+.item-info p {
+  margin: 2px 0;
+  padding: 0;
+  font-size: 20px; /* agranda este valor a tu gusto */
+  font-weight: 600; /* para que se vea un poco más grueso */
+}
+
+
+.alumnos-container {
+  width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #fefefe;
+  box-shadow: 0px 1px 10px 0px black;
+  
+}
+
+.alumnos-container h2 {
+  margin-bottom: 0; /* Reduce el espacio inferior del título */
+}
+
+.boton-agregar {
+  width: 600px;          /* Ancho fijo */
+  font-size: 20px;
+  padding: 15px;     /* Texto un poco más grande */
+  border-radius: 15px;    /* Bordes redondeados (opcional) */
+  background-color: #1588fc; /* Color azul (opcional) */
+  color: rgb(255, 253, 253);
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.boton-agregar:hover {
+  background-color: #135ba1;
+}
+
+p.apreciacion-color{
+  color: #1976d2;
+  background-color: #c5d9f2;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 15px;
+  max-width: 120px;
+
+}
+
+.mensaje-no-eva{
+  color: #827e7e;
+  font-size: 30px;
+  text-align: center;
+}
+
+.eva-guard-text{
+  font-size: 45px;
+  color: #04a12c;
+  text-shadow: 1px 1px 1px black;
+  padding-bottom: 30px;
+
+}
+
+.edit-agreg-eva{
+  font-size: 40px;
+  color: #00b3ff;
+  text-shadow: 2px 2px 2px black;
+}
+
+input::placeholder {
+  color: #b8b6b6; /* o el color que tú quieras */
+}
+
+input:focus {
+  border: 2px solid #1976d2; /* Cambia el color del borde */
+  outline: none; /* Quita el borde azul por defecto del navegador */
+  box-shadow: 0 0 5px rgba(25, 118, 210, 0.5); /* Sombra opcional para que resalte */
 }
