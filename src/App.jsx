@@ -4,16 +4,14 @@ import List from './components/List'; // Importa Lista
 import './App.css'; // Importa estilos
 
 function App() {
-  const [items, setItems] = useState([]); // Lista de alumnos
-  const [itemToEdit, setItemToEdit] = useState(null); // Alumno que se está editando
+  const [items, setItems] = useState(() => {
+  const storedItems = localStorage.getItem('items');
+  return storedItems ? JSON.parse(storedItems) : [];
+  });
+  const [itemToEdit, setItemToEdit] = useState(null);
 
   useEffect(() => {
-    const storedItems = JSON.parse(localStorage.getItem('items')) || []; // Lee los datos guardados
-    setItems(storedItems); // Inicializa el estado con esos datos
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('items', JSON.stringify(items)); // Guarda en localStorage cada vez que se actualizan los datos
+    localStorage.setItem('items', JSON.stringify(items));
   }, [items]);
 
   const calcularApreciacion = (promedio) => { // Según el promedio, da un mensaje
